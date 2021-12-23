@@ -1,0 +1,36 @@
+{
+  "name": "telegram-node-bot",
+  "version": "4.0.5",
+  "description": "Module for creating Telegram bots.",
+  "main": "lib/Telegram.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "node api-scheme/GenerateTGModels.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Naltox/telegram-node-bot.git"
+  },
+  "keywords": [
+    "telegram",
+    "bot",
+    "API"
+  ],
+  "author": "Narek Abovyan <xeroxaltox@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Naltox/telegram-bot/issues"
+  },
+  "homepage": "https://github.com/Naltox/telegram-node-bot",
+  "dependencies": {
+    "tiny_request": "latest"
+  },
+  "devDependencies": {
+    "cheerio": "^0.20.0",
+    "jsdoc": "latest",
+    "ink-docstrap": "latest"
+  },
+  "engines": {
+    "node": ">=6.0.0"
+  }
+}
