@@ -34,16 +34,19 @@ class TodoController extends Telegram.TelegramBaseController {
 
   checkHandler($) {
     let checktodo = $.message.text.split(" ").slice(1)[0];
-    if (!checktodo)
-      $.sendMessage("You have to enter the todo to check out");
-    else this._checkTodo(parseInt(checkTodo) - 1); 
-    
+    try {
+      this._checkTodo(parseInt(checktodo) - 1);
+    } catch (error) {
+      $.sendMessage("Not in range!");
+    }
+    if (!checktodo) $.sendMessage("You have to enter the todo to check out!");
   }
 
   _checkTodo(todo) {
     $.getUserSession("todos").then((todos) => {
       if (!todos) $.sendMessage("You have no todos to check out");
-      else todos.remove(todo); $.sendMessage('Todo Checked!')
+      else todos.splice(todo, 1);
+      $.sendMessage("Todo Checked!");
     });
   }
 
@@ -60,4 +63,3 @@ module.exports = TodoController;
 
 // add - Add a new todoList
 // gettodos -  Get a list of todos
-
